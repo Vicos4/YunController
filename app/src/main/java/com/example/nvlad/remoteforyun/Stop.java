@@ -7,16 +7,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Forward extends AsyncTask<String, Void, Forward>
+public class Stop extends AsyncTask<String, Void, Stop>
 {
-    protected Forward doInBackground(String... urls)
+    protected Stop doInBackground(String... urls)
     {
         URL url;
         HttpURLConnection urlConnection = null;
         try
         {
-            //url = new URL("http://192.168.240.1/arduino/digital/13/500");
-            url = new URL("http://google.ca");
+            url = new URL("http://192.168.240.1/arduino/digital/13/0");
 
             urlConnection = (HttpURLConnection) url.openConnection();
 
