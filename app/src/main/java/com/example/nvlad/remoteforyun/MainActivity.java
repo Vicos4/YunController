@@ -10,6 +10,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
 
 public class MainActivity extends ActionBarActivity
 {
@@ -25,6 +31,8 @@ public class MainActivity extends ActionBarActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         textView1 = (TextView)findViewById(R.id.textView1);
         textView2 = (TextView)findViewById(R.id.textView2);
@@ -56,7 +64,8 @@ public class MainActivity extends ActionBarActivity
                     int direction = js.get8Direction();
                     if(direction == JoyStickClass.STICK_UP)
                     {
-                        new Forward().execute("http://192.168.240.1/arduino/digital/13/500");
+                        //new Forward().execute("http://192.168.240.1/arduino/digital/13/500");
+                        Forward();
                         textView5.setText("Direction : Up");
                     } else if(direction == JoyStickClass.STICK_UPRIGHT)
                     {
@@ -64,7 +73,8 @@ public class MainActivity extends ActionBarActivity
                         textView5.setText("Direction : Up Right");
                     } else if(direction == JoyStickClass.STICK_RIGHT)
                     {
-                        new Right().execute("http://192.168.240.1/arduino/digital/13/1");
+                        //new Right().execute("http://192.168.240.1/arduino/digital/13/1");
+                        Right();
                         textView5.setText("Direction : Right");
                     } else if(direction == JoyStickClass.STICK_DOWNRIGHT)
                     {
@@ -72,7 +82,8 @@ public class MainActivity extends ActionBarActivity
                         textView5.setText("Direction : Down Right");
                     } else if(direction == JoyStickClass.STICK_DOWN)
                     {
-                        new Back().execute("http://192.168.240.1/arduino/digital/13/1500");
+                        //new Back().execute("http://192.168.240.1/arduino/digital/13/1500");
+                        Back();
                         textView5.setText("Direction : Down");
                     } else if(direction == JoyStickClass.STICK_DOWNLEFT)
                     {
@@ -80,7 +91,8 @@ public class MainActivity extends ActionBarActivity
                         textView5.setText("Direction : Down Left");
                     } else if(direction == JoyStickClass.STICK_LEFT)
                     {
-                        new Left().execute("http://192.168.240.1/arduino/digital/13/2");
+                        //new Left().execute("http://192.168.240.1/arduino/digital/13/2");
+                        Left();
                         textView5.setText("Direction : Left");
                     } else if(direction == JoyStickClass.STICK_UPLEFT)
                     {
@@ -88,7 +100,8 @@ public class MainActivity extends ActionBarActivity
                         textView5.setText("Direction : Up Left");
                     } else if(direction == JoyStickClass.STICK_NONE)
                     {
-                        new Stop().execute("http://192.168.240.1/arduino/digital/13/0");
+                        //new Stop().execute("http://192.168.240.1/arduino/digital/13/0");
+                        Stop();
                         textView5.setText("Direction : Center");
                     }
                 } else if(arg1.getAction() == MotionEvent.ACTION_UP)
@@ -157,7 +170,148 @@ public class MainActivity extends ActionBarActivity
 //        });
 //    }
 
+public void Forward()
+{
+    //String url = "http://192.168.240.1/arduino/digital/13/500";
+    String url = "http://google.ca";
 
+// Request a string response
+    StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+            new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+
+                    // Result handling
+                    //System.out.println(response.substring(0,10000));
+
+                }
+            }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+
+            // Error handling
+            System.out.println("Something went wrong!");
+            error.printStackTrace();
+
+        }
+    });
+
+// Add the request to the queue
+    Volley.newRequestQueue(this).add(stringRequest);
+}
+    public void Right()
+    {
+        //String url = "http://192.168.240.1/arduino/digital/13/1";
+        String url = "http://bing.com";
+
+// Request a string response
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        // Result handling
+                       // System.out.println(response.substring(0,10000));
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                // Error handling
+                System.out.println("Something went wrong!");
+                error.printStackTrace();
+
+            }
+        });
+
+// Add the request to the queue
+        Volley.newRequestQueue(this).add(stringRequest);
+    }
+    public void Left()
+    {
+        String url = "http://192.168.240.1/arduino/digital/13/2";
+
+// Request a string response
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        // Result handling
+                        System.out.println(response.substring(0,100));
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                // Error handling
+                System.out.println("Something went wrong!");
+                error.printStackTrace();
+
+            }
+        });
+
+// Add the request to the queue
+        Volley.newRequestQueue(this).add(stringRequest);
+    }
+    public void Back()
+    {
+        String url = "http://192.168.240.1/arduino/digital/13/1500";
+
+// Request a string response
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        // Result handling
+                        System.out.println(response.substring(0,100));
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                // Error handling
+                System.out.println("Something went wrong!");
+                error.printStackTrace();
+
+            }
+        });
+
+// Add the request to the queue
+        Volley.newRequestQueue(this).add(stringRequest);
+    }
+    public void Stop()
+    {
+        String url = "http://192.168.240.1/arduino/digital/13/0";
+
+// Request a string response
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        // Result handling
+                        System.out.println(response.substring(0,100));
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                // Error handling
+                System.out.println("Something went wrong!");
+                error.printStackTrace();
+
+            }
+        });
+
+// Add the request to the queue
+        Volley.newRequestQueue(this).add(stringRequest);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
