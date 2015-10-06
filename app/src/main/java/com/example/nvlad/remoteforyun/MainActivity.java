@@ -1,14 +1,19 @@
 package com.example.nvlad.remoteforyun;
 
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+
 import android.view.Menu;
 import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.net.HttpURLConnection;
 
 
 public class MainActivity extends ActionBarActivity
@@ -31,6 +36,9 @@ public class MainActivity extends ActionBarActivity
         textView3 = (TextView)findViewById(R.id.textView3);
         textView4 = (TextView)findViewById(R.id.textView4);
         textView5 = (TextView)findViewById(R.id.textView5);
+
+        HttpURLConnection con = null;
+
 
         layout_joystick = (RelativeLayout)findViewById(R.id.layout_joystick);
 
@@ -56,15 +64,25 @@ public class MainActivity extends ActionBarActivity
                     int direction = js.get8Direction();
                     if(direction == JoyStickClass.STICK_UP)
                     {
-                        new Forward().execute("http://192.168.240.1/arduino/digital/13/500");
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                            new Forward().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "http://192.168.240.1/arduino/digital/13/500");
+                        } else {
+                            new Forward().execute("http://192.168.240.1/arduino/digital/13/500");
+                        }
+                        //new Forward().execute("http://192.168.240.1/arduino/digital/13/500");
                         textView5.setText("Direction : Up");
                     } else if(direction == JoyStickClass.STICK_UPRIGHT)
                     {
-                        new Forward().execute("http://192.168.240.1/arduino/digital/13/500");
+                        //new Forward().execute("http://192.168.240.1/arduino/digital/13/500");
                         textView5.setText("Direction : Up Right");
                     } else if(direction == JoyStickClass.STICK_RIGHT)
                     {
-                        new Right().execute("http://192.168.240.1/arduino/digital/13/1");
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                            new Right().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "http://192.168.240.1/arduino/digital/13/1");
+                        } else {
+                            new Right().execute("http://192.168.240.1/arduino/digital/13/1");
+                        }
+                        //new Right().execute("http://192.168.240.1/arduino/digital/13/1");
                         textView5.setText("Direction : Right");
                     } else if(direction == JoyStickClass.STICK_DOWNRIGHT)
                     {
@@ -72,7 +90,12 @@ public class MainActivity extends ActionBarActivity
                         textView5.setText("Direction : Down Right");
                     } else if(direction == JoyStickClass.STICK_DOWN)
                     {
-                        new Back().execute("http://192.168.240.1/arduino/digital/13/1500");
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                            new Back().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "http://192.168.240.1/arduino/digital/13/1500");
+                        } else {
+                            new Back().execute("http://192.168.240.1/arduino/digital/13/1500");
+                        }
+                        //new Back().execute("http://192.168.240.1/arduino/digital/13/1500");
                         textView5.setText("Direction : Down");
                     } else if(direction == JoyStickClass.STICK_DOWNLEFT)
                     {
@@ -80,7 +103,12 @@ public class MainActivity extends ActionBarActivity
                         textView5.setText("Direction : Down Left");
                     } else if(direction == JoyStickClass.STICK_LEFT)
                     {
-                        new Left().execute("http://192.168.240.1/arduino/digital/13/2");
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                            new Left().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "http://192.168.240.1/arduino/digital/13/2");
+                        } else {
+                            new Left().execute("http://192.168.240.1/arduino/digital/13/2");
+                        }
+                        //new Left().execute("http://192.168.240.1/arduino/digital/13/2");
                         textView5.setText("Direction : Left");
                     } else if(direction == JoyStickClass.STICK_UPLEFT)
                     {
@@ -88,11 +116,15 @@ public class MainActivity extends ActionBarActivity
                         textView5.setText("Direction : Up Left");
                     } else if(direction == JoyStickClass.STICK_NONE)
                     {
-                        new Stop().execute("http://192.168.240.1/arduino/digital/13/0");
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                            new Stop().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "http://192.168.240.1/arduino/digital/13/0");
+                        } else {
+                            new Stop().execute("http://192.168.240.1/arduino/digital/13/0");
+                        }
+                        //new Stop().execute("http://192.168.240.1/arduino/digital/13/0");
                         textView5.setText("Direction : Center");
                     }
-                } else if(arg1.getAction() == MotionEvent.ACTION_UP)
-                {
+                } else if(arg1.getAction() == MotionEvent.ACTION_UP) {
                     textView1.setText("X :");
                     textView2.setText("Y :");
                     textView3.setText("Angle :");

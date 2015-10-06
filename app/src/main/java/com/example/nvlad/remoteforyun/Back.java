@@ -34,7 +34,7 @@ public class Back extends AsyncTask<String, Void, Back>
             e.printStackTrace();
         } finally {
             try {
-                urlConnection.disconnect();
+                //urlConnection.disconnect();
             } catch (Exception e) {
                 e.printStackTrace(); //If you want further info on failure...
             }

@@ -9,17 +9,21 @@ import java.net.URL;
 
 public class Forward extends AsyncTask<String, Void, Forward>
 {
+
     protected Forward doInBackground(String... urls)
     {
         URL url;
         HttpURLConnection urlConnection = null;
         try
         {
-            //url = new URL("http://192.168.240.1/arduino/digital/13/500");
-            url = new URL("http://google.ca");
-
+            url = new URL("http://192.168.240.1/arduino/digital/13/500");
+            //url = new URL("http://google.ca");
             urlConnection = (HttpURLConnection) url.openConnection();
 
+
+
+
+            //InputStream in = urlConnection.getInputStream();
             InputStream in = urlConnection.getInputStream();
 
             InputStreamReader isw = new InputStreamReader(in);
@@ -35,7 +39,7 @@ public class Forward extends AsyncTask<String, Void, Forward>
             e.printStackTrace();
         } finally {
             try {
-                urlConnection.disconnect();
+                //urlConnection.disconnect();
             } catch (Exception e) {
                 e.printStackTrace(); //If you want further info on failure...
             }
