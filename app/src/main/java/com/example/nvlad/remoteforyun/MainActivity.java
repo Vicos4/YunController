@@ -1,7 +1,7 @@
 package com.example.nvlad.remoteforyun;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -17,7 +17,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 
-public class MainActivity extends ActionBarActivity
+public class MainActivity extends Activity
 {
 
     RelativeLayout layout_joystick;
@@ -25,6 +25,7 @@ public class MainActivity extends ActionBarActivity
     TextView textView1, textView2, textView3, textView4, textView5;
 
     JoyStickClass js;
+    boolean positionChanged = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -50,6 +51,8 @@ public class MainActivity extends ActionBarActivity
         js.setOffset(90);
         js.setMinimumDistance(50);
 
+
+
         layout_joystick.setOnTouchListener(new View.OnTouchListener() {
 
             public boolean onTouch(View arg0, MotionEvent arg1) {
@@ -64,20 +67,23 @@ public class MainActivity extends ActionBarActivity
                     int direction = js.get8Direction();
                     if(direction == JoyStickClass.STICK_UP)
                     {
-                        //new Forward().execute("http://192.168.240.1/arduino/digital/13/500");
                         Forward();
                         textView5.setText("Direction : Up");
+                        System.out.println("Forward");
                     } else if(direction == JoyStickClass.STICK_UPRIGHT)
                     {
-                        new Forward().execute("http://192.168.240.1/arduino/digital/13/500");
+                        System.out.println("Forward Right");
+                        //new Forward().execute("http://192.168.240.1/arduino/digital/13/500");
                         textView5.setText("Direction : Up Right");
                     } else if(direction == JoyStickClass.STICK_RIGHT)
                     {
                         //new Right().execute("http://192.168.240.1/arduino/digital/13/1");
                         Right();
+                        System.out.println("Right");
                         textView5.setText("Direction : Right");
                     } else if(direction == JoyStickClass.STICK_DOWNRIGHT)
                     {
+                        System.out.println("Down Right");
                         //new Forward().execute("http://192.168.240.1/arduino/digital/13/500");
                         textView5.setText("Direction : Down Right");
                     } else if(direction == JoyStickClass.STICK_DOWN)
@@ -85,23 +91,28 @@ public class MainActivity extends ActionBarActivity
                         //new Back().execute("http://192.168.240.1/arduino/digital/13/1500");
                         Back();
                         textView5.setText("Direction : Down");
+                        System.out.println("Down");
                     } else if(direction == JoyStickClass.STICK_DOWNLEFT)
                     {
                         //new Forward().execute("http://192.168.240.1/arduino/digital/13/500");
                         textView5.setText("Direction : Down Left");
+                        System.out.println("Down Left");
                     } else if(direction == JoyStickClass.STICK_LEFT)
                     {
                         //new Left().execute("http://192.168.240.1/arduino/digital/13/2");
                         Left();
+                        System.out.println("Left");
                         textView5.setText("Direction : Left");
                     } else if(direction == JoyStickClass.STICK_UPLEFT)
                     {
                         //new Forward().execute("http://192.168.240.1/arduino/digital/13/500");
                         textView5.setText("Direction : Up Left");
+                        System.out.println("Up Left");
                     } else if(direction == JoyStickClass.STICK_NONE)
                     {
                         //new Stop().execute("http://192.168.240.1/arduino/digital/13/0");
                         Stop();
+                        System.out.println("Stop");
                         textView5.setText("Direction : Center");
                     }
                 } else if(arg1.getAction() == MotionEvent.ACTION_UP)
@@ -172,8 +183,8 @@ public class MainActivity extends ActionBarActivity
 
 public void Forward()
 {
-    //String url = "http://192.168.240.1/arduino/digital/13/500";
-    String url = "http://google.ca";
+    String url = "http://192.168.240.1/arduino/digital/13/500";
+    //String url = "http://google.ca";
 
 // Request a string response
     StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -198,11 +209,12 @@ public void Forward()
 
 // Add the request to the queue
     Volley.newRequestQueue(this).add(stringRequest);
+    //Volley.newRequestQueue(this).cancelAll(stringRequest);
 }
     public void Right()
     {
-        //String url = "http://192.168.240.1/arduino/digital/13/1";
-        String url = "http://bing.com";
+        String url = "http://192.168.240.1/arduino/digital/13/1";
+        //String url = "http://bing.com";
 
 // Request a string response
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -227,6 +239,7 @@ public void Forward()
 
 // Add the request to the queue
         Volley.newRequestQueue(this).add(stringRequest);
+        //Volley.newRequestQueue(this).cancelAll(stringRequest);
     }
     public void Left()
     {
@@ -239,7 +252,7 @@ public void Forward()
                     public void onResponse(String response) {
 
                         // Result handling
-                        System.out.println(response.substring(0,100));
+                        //System.out.println(response.substring(0,100));
 
                     }
                 }, new Response.ErrorListener() {
@@ -255,6 +268,7 @@ public void Forward()
 
 // Add the request to the queue
         Volley.newRequestQueue(this).add(stringRequest);
+        //Volley.newRequestQueue(this).cancelAll(stringRequest);
     }
     public void Back()
     {
@@ -267,7 +281,7 @@ public void Forward()
                     public void onResponse(String response) {
 
                         // Result handling
-                        System.out.println(response.substring(0,100));
+                        //System.out.println(response.substring(0,100));
 
                     }
                 }, new Response.ErrorListener() {
@@ -283,6 +297,7 @@ public void Forward()
 
 // Add the request to the queue
         Volley.newRequestQueue(this).add(stringRequest);
+       // Volley.newRequestQueue(this).cancelAll(stringRequest);
     }
     public void Stop()
     {
@@ -295,7 +310,7 @@ public void Forward()
                     public void onResponse(String response) {
 
                         // Result handling
-                        System.out.println(response.substring(0,100));
+                       // System.out.println(response.substring(0,100));
 
                     }
                 }, new Response.ErrorListener() {
@@ -311,6 +326,7 @@ public void Forward()
 
 // Add the request to the queue
         Volley.newRequestQueue(this).add(stringRequest);
+      //  Volley.newRequestQueue(this).cancelAll(stringRequest);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
