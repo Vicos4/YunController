@@ -12,14 +12,30 @@ import android.view.ViewGroup.LayoutParams;
 
 public class JoyStickClass {
     public static final int STICK_NONE = 0;
-    public static final int STICK_UP = 1;
-    public static final int STICK_UPRIGHT = 2;
-    public static final int STICK_RIGHT = 3;
-    public static final int STICK_DOWNRIGHT = 4;
-    public static final int STICK_DOWN = 5;
-    public static final int STICK_DOWNLEFT = 6;
-    public static final int STICK_LEFT = 7;
-    public static final int STICK_UPLEFT = 8;
+    public static final int STICK_UP_1 = 11;
+    public static final int STICK_UP_2 = 12;
+    public static final int STICK_UP_3 = 13;
+    public static final int STICK_UPRIGHT_1 = 21;
+    public static final int STICK_UPRIGHT_2 = 22;
+    public static final int STICK_UPRIGHT_3 = 23;
+    public static final int STICK_RIGHT_1 = 31;
+    public static final int STICK_RIGHT_2 = 32;
+    public static final int STICK_RIGHT_3 = 33;
+    public static final int STICK_DOWNRIGHT_1 = 41;
+    public static final int STICK_DOWNRIGHT_2 = 42;
+    public static final int STICK_DOWNRIGHT_3 = 43;
+    public static final int STICK_DOWN_1 = 51;
+    public static final int STICK_DOWN_2 = 52;
+    public static final int STICK_DOWN_3 = 53;
+    public static final int STICK_DOWNLEFT_1 = 61;
+    public static final int STICK_DOWNLEFT_2 = 62;
+    public static final int STICK_DOWNLEFT_3 = 63;
+    public static final int STICK_LEFT_1 = 71;
+    public static final int STICK_LEFT_2 = 72;
+    public static final int STICK_LEFT_3 = 73;
+    public static final int STICK_UPLEFT_1 = 81;
+    public static final int STICK_UPLEFT_2 = 82;
+    public static final int STICK_UPLEFT_3 = 83;
 
     private int STICK_ALPHA = 200;
     private int LAYOUT_ALPHA = 200;
@@ -132,43 +148,140 @@ public class JoyStickClass {
     }
 
     public static int position = 0;
+    public static int speed = 0;
 
     public int get8Direction() {
         if(distance > min_distance && touch_state) {
-            if (angle >= 247.5 && angle < 292.5 && position != 1) {
-                position = 1;
+            //region Stick_UP
+            if (angle >= 247.5 && angle < 292.5 && position != 11 && distance <=80 ) {
+                position = 11;
                 System.out.println(position);
-                return STICK_UP;
-            } else if (angle >= 292.5 && angle < 337.5 && position != 2) {
-                position = 2;
-                System.out.println(position);
-                return STICK_UPRIGHT;
-            } else if (angle >= 337.5 & position != 3 && angle < 359.5) {
-                position = 3;
-                System.out.println(position);
-                return STICK_RIGHT;
-            } else if (angle >= 22.5 && angle < 67.5 && position != 4) {
-                position = 4;
-                System.out.println(position);
-                return STICK_DOWNRIGHT;
-            } else if (angle >= 67.5 && angle < 112.5 && position != 5) {
-                position = 5;
-                System.out.println(position);
-                return STICK_DOWN;
-            } else if (angle >= 112.5 && angle < 157.5 && position != 6) {
-                position = 6;
-                System.out.println(position);
-                return STICK_DOWNLEFT;
-            } else if (angle >= 157.5 && angle < 202.5 && position != 7) {
-                position = 7;
-                System.out.println(position);
-                return STICK_LEFT;
-            } else if (angle >= 202.5 && angle < 247.5 && position != 8) {
-                position = 8;
-                System.out.println(position);
-                return STICK_UPLEFT;
+                return STICK_UP_1;
             }
-
+            else if (angle >= 247.5 && angle < 292.5 && position != 12 && distance >80 && distance < 160) {
+                position = 12;
+                System.out.println(position);
+                return STICK_UP_2;
+            }
+            else if (angle >= 247.5 && angle < 292.5 && position != 13 && distance >160) {
+                position = 13;
+                System.out.println(position);
+                return STICK_UP_3;
+            }
+            //endregion
+            //region Stick_UPRIGHT
+            else if (angle >= 292.5 && angle < 337.5 && position != 21 && distance <=80) {
+                position = 21;
+                System.out.println(position);
+                return STICK_UPRIGHT_1;
+            }else if (angle >= 292.5 && angle < 337.5 && position != 22 && distance >80 && distance < 160) {
+                position = 22;
+                System.out.println(position);
+                return STICK_UPRIGHT_2;
+            }else if (angle >= 292.5 && angle < 337.5 && position != 23 && distance >160) {
+                position = 23;
+                System.out.println(position);
+                return STICK_UPRIGHT_3;
+            }
+            //endregion
+            //region Stick_RIGHT
+            else if (angle >= 337.5 & position != 31 && angle < 359.5 && distance <=80) {
+                position = 31;
+                System.out.println(position);
+                return STICK_RIGHT_1;
+            }else if (angle >= 337.5 & position != 32 && angle < 359.5 && distance >80 && distance < 160) {
+                position = 32;
+                System.out.println(position);
+                return STICK_RIGHT_2;
+            }else if (angle >= 337.5 & position != 33 && angle < 359.5 && distance >160) {
+                position = 33;
+                System.out.println(position);
+                return STICK_RIGHT_3;
+            }
+            //endregion
+            //region Stick_DOWNRIGHT
+            else if (angle >= 22.5 && angle < 67.5 && position != 41 && distance <=80) {
+                position = 41;
+                System.out.println(position);
+                return STICK_DOWNRIGHT_1;
+            }else if (angle >= 22.5 && angle < 67.5 && position != 42 && distance >80 && distance < 160) {
+                position = 42;
+                System.out.println(position);
+                return STICK_DOWNRIGHT_2;
+            }else if (angle >= 22.5 && angle < 67.5 && position != 43 && distance >160) {
+                position = 43;
+                System.out.println(position);
+                return STICK_DOWNRIGHT_3;
+            }
+            //endregion
+            //region Stick_DOWN
+            else if (angle >= 67.5 && angle < 112.5 && position != 51 && distance <= 80) {
+                position = 51;
+                System.out.println(position);
+                return STICK_DOWN_1;
+            }
+            else if (angle >= 67.5 && angle < 112.5 && position != 52 && distance >80 && distance < 160) {
+                position = 52;
+                System.out.println(position);
+                return STICK_DOWN_2;
+            }
+            else if (angle >= 67.5 && angle < 112.5 && position != 53 && distance >160) {
+                position = 53;
+                System.out.println(position);
+                return STICK_DOWN_3;
+            }
+            //endregion
+            //region Stick_DOWNLEFT
+            else if (angle >= 112.5 && angle < 157.5 && position != 61 && distance <= 80) {
+                position = 61;
+                System.out.println(position);
+                return STICK_DOWNLEFT_1;
+            }
+            else if (angle >= 112.5 && angle < 157.5 && position != 62 && distance >80 && distance < 160) {
+                position = 62;
+                System.out.println(position);
+                return STICK_DOWNLEFT_2;
+            }
+            else if (angle >= 112.5 && angle < 157.5 && position != 63 && distance >160) {
+                position = 63;
+                System.out.println(position);
+                return STICK_DOWNLEFT_3;
+            }
+            //endregion
+            //region Stick_LEFT
+             else if (angle >= 157.5 && angle < 202.5 && position != 71 && distance <= 80) {
+                position = 71;
+                System.out.println(position);
+                return STICK_LEFT_1;
+            }
+            else if (angle >= 157.5 && angle < 202.5 && position != 72 && distance >80 && distance < 160) {
+                position = 72;
+                System.out.println(position);
+                return STICK_LEFT_2;
+            }
+            else if (angle >= 157.5 && angle < 202.5 && position != 73 && distance >160) {
+                position = 73;
+                System.out.println(position);
+                return STICK_LEFT_3;
+            }
+            //endregion
+            //region Stick_UPLEFT
+            else if (angle >= 202.5 && angle < 247.5 && position != 81 && distance <= 80) {
+                position = 81;
+                System.out.println(position);
+                return STICK_UPLEFT_1;
+            }
+            else if (angle >= 202.5 && angle < 247.5 && position != 82 && distance >80 && distance < 160) {
+                position = 82;
+                System.out.println(position);
+                return STICK_UPLEFT_2;
+            }
+            else if (angle >= 202.5 && angle < 247.5 && position != 83 && distance >160) {
+                position = 83;
+                System.out.println(position);
+                return STICK_UPLEFT_3;
+            }
+            //endregion
         //} else if(distance <= min_distance && touch_state && angle > 0 && angle < 22.5 & position != 0) {
         } else if(distance <= min_distance && touch_state && position != 0) {
             position = 0;
@@ -178,22 +291,22 @@ public class JoyStickClass {
         return 9;
     }
 
-    public int get4Direction() {
-        if(distance > min_distance && touch_state) {
-            if(angle >= 225 && angle < 315 ) {
-                return STICK_UP;
-            } else if(angle >= 315 || angle < 45 ) {
-                return STICK_RIGHT;
-            } else if(angle >= 45 && angle < 135 ) {
-                return STICK_DOWN;
-            } else if(angle >= 135 && angle < 225 ) {
-                return STICK_LEFT;
-            }
-        } else if(distance <= min_distance && touch_state) {
-            return STICK_NONE;
-        }
-        return 0;
-    }
+//    public int get4Direction() {
+//        if(distance > min_distance && touch_state) {
+//            if(angle >= 225 && angle < 315 ) {
+//                return STICK_UP;
+//            } else if(angle >= 315 || angle < 45 ) {
+//                return STICK_RIGHT;
+//            } else if(angle >= 45 && angle < 135 ) {
+//                return STICK_DOWN;
+//            } else if(angle >= 135 && angle < 225 ) {
+//                return STICK_LEFT;
+//            }
+//        } else if(distance <= min_distance && touch_state) {
+//            return STICK_NONE;
+//        }
+//        return 0;
+//    }
 
     public void setOffset(int offset) {
         OFFSET = offset;
