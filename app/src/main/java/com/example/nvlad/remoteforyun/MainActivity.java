@@ -68,19 +68,19 @@ public class MainActivity extends Activity
                     //region UP
                     if(direction == JoyStickClass.STICK_UP_1)
                     {
-                        Forward("http://192.168.240.1/arduino/digital/13/500");
+                        Forward("http://192.168.240.1/arduino/digital/13/11");
                         textView5.setText("Direction : Up");
                         System.out.println("Forward Speed 1");
                     }
                     else if(direction == JoyStickClass.STICK_UP_2)
                     {
-                        Forward("http://192.168.240.1/arduino/digital/13/500");
+                        Forward("http://192.168.240.1/arduino/digital/13/12");
                         textView5.setText("Direction : Up");
                         System.out.println("Forward Speed 2");
                     }
                     else if(direction == JoyStickClass.STICK_UP_3)
                     {
-                        Forward("http://192.168.240.1/arduino/digital/13/500");
+                        Forward("http://192.168.240.1/arduino/digital/13/13");
                         textView5.setText("Direction : Up");
                         System.out.println("Forward Speed 3");
                     }
@@ -88,19 +88,19 @@ public class MainActivity extends Activity
                     //region UPRIGHT
                     else if(direction == JoyStickClass.STICK_UPRIGHT_1)
                     {
-                        //Forward_Right("http://192.168.240.1/arduino/digital/13/500");
+                        UpRight("http://192.168.240.1/arduino/digital/13/21");
                         textView5.setText("Direction : Up Right");
                         System.out.println("Forward Right Speed 1");
                     }
                     else if(direction == JoyStickClass.STICK_UPRIGHT_2)
                     {
-                        //Forward_Right("http://192.168.240.1/arduino/digital/13/500");
+                        UpRight("http://192.168.240.1/arduino/digital/13/22");
                         textView5.setText("Direction : Up Right");
                         System.out.println("Forward Right Speed 2");
                     }
                     else if(direction == JoyStickClass.STICK_UPRIGHT_3)
                     {
-                        //Forward_Right("http://192.168.240.1/arduino/digital/13/500");
+                        UpRight("http://192.168.240.1/arduino/digital/13/23");
                         textView5.setText("Direction : Up Right");
                         System.out.println("Forward Right Speed 3");
                     }
@@ -108,19 +108,19 @@ public class MainActivity extends Activity
                     //region RIGHT
                     else if(direction == JoyStickClass.STICK_RIGHT_1)
                     {
-                        Right("http://192.168.240.1/arduino/digital/13/1");
+                        Right("http://192.168.240.1/arduino/digital/13/31");
                         textView5.setText("Direction : Right");
                         System.out.println("Right Speed 1");
                     }
                     else if(direction == JoyStickClass.STICK_RIGHT_2)
                     {
-                        Right("http://192.168.240.1/arduino/digital/13/12");
+                        Right("http://192.168.240.1/arduino/digital/13/32");
                         textView5.setText("Direction : Right");
                         System.out.println("Right Speed 2");
                     }
                     else if(direction == JoyStickClass.STICK_RIGHT_3)
                     {
-                        Right("http://192.168.240.1/arduino/digital/13/13");
+                        Right("http://192.168.240.1/arduino/digital/13/33");
                         textView5.setText("Direction : Right");
                         System.out.println("Right Speed 3");
                     }
@@ -128,19 +128,19 @@ public class MainActivity extends Activity
                     //region DOWNRIGHT
                     else if(direction == JoyStickClass.STICK_DOWNRIGHT_1)
                     {
-                        //DownRight("http://192.168.240.1/arduino/digital/13/1");
+                        DownRight("http://192.168.240.1/arduino/digital/13/41");
                         textView5.setText("Direction : Down Right");
                         System.out.println("Down Right Speed 1");
                     }
                     else if(direction == JoyStickClass.STICK_RIGHT_2)
                     {
-                        //DownRight("http://192.168.240.1/arduino/digital/13/12");
+                        DownRight("http://192.168.240.1/arduino/digital/13/42");
                         textView5.setText("Direction : Down Right");
                         System.out.println("Down Right Speed 2");
                     }
                     else if(direction == JoyStickClass.STICK_RIGHT_3)
                     {
-                        //DownRight("http://192.168.240.1/arduino/digital/13/13");
+                        DownRight("http://192.168.240.1/arduino/digital/13/43");
                         textView5.setText("Direction : Down Right");
                         System.out.println("Down Right Speed 3");
                     }
@@ -148,19 +148,19 @@ public class MainActivity extends Activity
                     //region DOWN
                     else if(direction == JoyStickClass.STICK_DOWN_1)
                     {
-                        Back("http://192.168.240.1/arduino/digital/13/1500");
+                        Back("http://192.168.240.1/arduino/digital/13/51");
                         textView5.setText("Direction : Back");
                         System.out.println("Back Speed 1");
                     }
                     else if(direction == JoyStickClass.STICK_DOWN_2)
                     {
-                        Back("http://192.168.240.1/arduino/digital/13/1520");
+                        Back("http://192.168.240.1/arduino/digital/13/52");
                         textView5.setText("Direction : Back");
                         System.out.println("Back Speed 2");
                     }
                     else if(direction == JoyStickClass.STICK_DOWN_3)
                     {
-                        Back("http://192.168.240.1/arduino/digital/13/1530");
+                        Back("http://192.168.240.1/arduino/digital/13/53");
                         textView5.setText("Direction : Back");
                         System.out.println("Back Speed 3");
                     }
@@ -168,19 +168,19 @@ public class MainActivity extends Activity
                     //region DOWNLEFT
                     else if(direction == JoyStickClass.STICK_DOWNLEFT_1)
                     {
-                        //DownLeft("http://192.168.240.1/arduino/digital/13/1");
+                        DownLeft("http://192.168.240.1/arduino/digital/13/61");
                         textView5.setText("Direction : Down Left");
                         System.out.println("Down Left Speed 1");
                     }
                     else if(direction == JoyStickClass.STICK_DOWNLEFT_2)
                     {
-                        //DownLeft("http://192.168.240.1/arduino/digital/13/12");
+                        DownLeft("http://192.168.240.1/arduino/digital/13/62");
                         textView5.setText("Direction : Down Left");
                         System.out.println("Down Left Speed 2");
                     }
                     else if(direction == JoyStickClass.STICK_DOWNLEFT_3)
                     {
-                        //DownLeft("http://192.168.240.1/arduino/digital/13/13");
+                        DownLeft("http://192.168.240.1/arduino/digital/13/63");
                         textView5.setText("Direction : Down Left");
                         System.out.println("Down Left Speed 3");
                     }
@@ -188,19 +188,19 @@ public class MainActivity extends Activity
                     //region LEFT
                     else if(direction == JoyStickClass.STICK_LEFT_1)
                     {
-                        Left("http://192.168.240.1/arduino/digital/13/1");
+                        Left("http://192.168.240.1/arduino/digital/13/71");
                         textView5.setText("Direction : Left");
                         System.out.println("Left Speed 1");
                     }
                     else if(direction == JoyStickClass.STICK_LEFT_2)
                     {
-                        Left("http://192.168.240.1/arduino/digital/13/12");
+                        Left("http://192.168.240.1/arduino/digital/13/72");
                         textView5.setText("Direction : Left");
                         System.out.println("Left Speed 2");
                     }
                     else if(direction == JoyStickClass.STICK_LEFT_3)
                     {
-                        Left("http://192.168.240.1/arduino/digital/13/13");
+                        Left("http://192.168.240.1/arduino/digital/13/73");
                         textView5.setText("Direction : Left");
                         System.out.println("Left Speed 3");
                     }
@@ -208,21 +208,30 @@ public class MainActivity extends Activity
                     //region UPLEFT
                     else if(direction == JoyStickClass.STICK_UPLEFT_1)
                     {
-                        //UpLeft("http://192.168.240.1/arduino/digital/13/1");
+                        UpLeft("http://192.168.240.1/arduino/digital/13/81");
                         textView5.setText("Direction : Up Left");
                         System.out.println("Up Left Speed 1");
                     }
                     else if(direction == JoyStickClass.STICK_UPLEFT_2)
                     {
-                        //UpLeft("http://192.168.240.1/arduino/digital/13/12");
+                        UpLeft("http://192.168.240.1/arduino/digital/13/82");
                         textView5.setText("Direction : Up Left");
                         System.out.println("Up Left Speed 2");
                     }
                     else if(direction == JoyStickClass.STICK_UPLEFT_3)
                     {
-                        //UpLeft("http://192.168.240.1/arduino/digital/13/13");
+                        UpLeft("http://192.168.240.1/arduino/digital/13/83");
                         textView5.setText("Direction : Up Left");
                         System.out.println("Up Left Speed 3");
+                    }
+                    //endregion
+                    //region STOP
+                    else if(direction == JoyStickClass.STICK_NONE)
+                    {
+                        new Stop().execute("http://192.168.240.1/arduino/digital/13/0");
+                        Stop();
+                        System.out.println("Stop");
+                        textView5.setText("Direction : Center");
                     }
                     //endregion
 //                    else if(direction == JoyStickClass.STICK_UPRIGHT_1)
@@ -338,21 +347,7 @@ public class MainActivity extends Activity
 
 public void Forward(String url)
 {
-//    String sentUrl = null;
-//    if (js.getDistance() <= 80)
-//    {
-//        url = "http://192.168.240.1/arduino/digital/13/500";
-//        System.out.println("First Speed");
-//    }else if (js.getDistance() > 80 && js.getDistance() <= 160)
-//    {
-//        url = "http://192.168.240.1/arduino/digital/13/530";
-//        System.out.println("Second Speed");
-//    }else if (js.getDistance() > 160)
-//    {
-//        url = "http://192.168.240.1/arduino/digital/13/560";
-//        System.out.println("Third Speed");
-//    }
-    //String url = "http://google.ca";
+
 
 // Request a string response
     StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -379,6 +374,122 @@ public void Forward(String url)
     Volley.newRequestQueue(this).add(stringRequest);
     //Volley.newRequestQueue(this).cancelAll(stringRequest);
 }
+    public void DownLeft(String url)
+    {
+
+
+// Request a string response
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        // Result handling
+                        //System.out.println(response.substring(0,10000));
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                // Error handling
+                System.out.println("Something went wrong!");
+                error.printStackTrace();
+
+            }
+        });
+
+// Add the request to the queue
+        Volley.newRequestQueue(this).add(stringRequest);
+        //Volley.newRequestQueue(this).cancelAll(stringRequest);
+    }
+    public void DownRight(String url)
+    {
+
+
+// Request a string response
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        // Result handling
+                        //System.out.println(response.substring(0,10000));
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                // Error handling
+                System.out.println("Something went wrong!");
+                error.printStackTrace();
+
+            }
+        });
+
+// Add the request to the queue
+        Volley.newRequestQueue(this).add(stringRequest);
+        //Volley.newRequestQueue(this).cancelAll(stringRequest);
+    }
+    public void UpLeft(String url)
+    {
+
+
+// Request a string response
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        // Result handling
+                        //System.out.println(response.substring(0,10000));
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                // Error handling
+                System.out.println("Something went wrong!");
+                error.printStackTrace();
+
+            }
+        });
+
+// Add the request to the queue
+        Volley.newRequestQueue(this).add(stringRequest);
+        //Volley.newRequestQueue(this).cancelAll(stringRequest);
+    }
+    public void UpRight(String url)
+    {
+
+
+// Request a string response
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        // Result handling
+                        //System.out.println(response.substring(0,10000));
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                // Error handling
+                System.out.println("Something went wrong!");
+                error.printStackTrace();
+
+            }
+        });
+
+// Add the request to the queue
+        Volley.newRequestQueue(this).add(stringRequest);
+        //Volley.newRequestQueue(this).cancelAll(stringRequest);
+    }
     public void Right(String url)
     {
 //        String url = null;
